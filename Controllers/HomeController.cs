@@ -9,7 +9,10 @@ namespace DogList.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("/")]
+
+// HOME AND VIEW ALL ROUTES
+
+        [HttpGet("/")]
         public ActionResult Index()
         {
             return View();
@@ -22,7 +25,8 @@ namespace DogList.Controllers
           return View(allDogs);
         }
 
-        // [Route("/newdog")]
+// CREATE ROUTE
+
         [HttpPost("/dogs")]
         public ActionResult NewDog()
         {
@@ -32,11 +36,21 @@ namespace DogList.Controllers
           List<Dog> allDogs = Dog.GetAll();
           model.Add("newDog", newDog);
           model.Add("allDogs", allDogs);
-          // return View(model);
-          return RedirectToAction("Index");
+          return RedirectToAction("Dogs");
         }
 
-        [Route("/dogs/edit/{id}")]
+// READ/DETAILS ROUTE
+
+        [HttpGet("/dogs/{id}")]
+        public ActionResult DogDetails(int id)
+        {
+          Dog thisDog = Dog.Find(id);
+          return View(thisDog);
+        }
+
+// EDIT ROUTES
+
+        [HttpGet("/dogs/edit/{id}")]
         public ActionResult DogEdit(int id)
         {
           Dog thisDog = Dog.Find(id);
@@ -44,17 +58,17 @@ namespace DogList.Controllers
         }
 
         // [Route()]
-        [HttpPost("/dogs/edited/{id}")]
+        [HttpPost("/dogs/edit/{id}")]
         public ActionResult DogEdited(int id)
         {
           Dog thisDog = Dog.Find(id);
           thisDog.Update(Request.Form["newname"]);
-          return View(thisDog);
+          return RedirectToAction("Dogs");
         }
 
+// DELETE ROUTES
 
-
-        [Route("/dogs/delete/{id}")]
+        [HttpGet("/dogs/delete/{id}")]
         public ActionResult DogDelete(int id)
         {
           Dog thisDog = Dog.Find(id);
@@ -64,22 +78,11 @@ namespace DogList.Controllers
         [HttpPost("/dogs/deleted/{id}")]
         public ActionResult DogDeleted(int id)
         {
-          Console.WriteLine("CALLED IT!");
           Dog thisDog = Dog.Find(id);
           string model = thisDog.GetName();
           thisDog.Delete();
-          return View();
+          return RedirectToAction("Dogs");
         }
-
-
-        [Route("/dogs/{id}")]
-        public ActionResult DogDetails(int id)
-        {
-          Dog thisDog = Dog.Find(id);
-          return View(thisDog);
-        }
-
-
 
     }
 }

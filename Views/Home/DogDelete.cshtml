@@ -1,6 +1,5 @@
 <h3>Would you like to Delete @Model.GetName() ?</h3>
 
-<form action="/dogs/deleted/@Model.GetId()" method="post">
-  @* <input type="hidden" name="_method" value="DELETE"> *@
+<form action="/dogs/delete/@Model.GetId()" method="post">
   <button type="submit" name="button">DELETE</button>
 </form>
