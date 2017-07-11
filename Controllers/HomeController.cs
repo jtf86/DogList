@@ -10,6 +10,7 @@ namespace DogList.Controllers
     public class HomeController : Controller
     {
         [Route("/")]
+        [Route("/apples")]
         public ActionResult Index()
         {
             return View();
