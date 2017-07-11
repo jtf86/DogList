@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 // using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,11 @@ namespace DogList.Objects
   {
     private string _name;
     private int _id;
-    // public static List<Dog> instances = new List<Dog> {};
 
     public Dog(string newName, int id=0)
     {
         this._name = newName;
         this._id = id;
-        // instances.Add(this);
     }
 
     public string GetName()
@@ -28,11 +27,6 @@ namespace DogList.Objects
     {
       return _id;
     }
-
-    // public static List<Dog> GetAllOLD()
-    // {
-    //   return instances;
-    // }
 
     public static List<Dog> GetAll()
     {
@@ -90,6 +84,8 @@ namespace DogList.Objects
       SqlParameter searchId = new SqlParameter();
       searchId.ParameterName = "@DogId";
       searchId.Value = dogId;
+
+      cmd.Parameters.Add(searchId);
       SqlDataReader rdr = cmd.ExecuteReader();
 
       int foundDogId = 0;
@@ -106,6 +102,7 @@ namespace DogList.Objects
       {
         conn.Close();
       }
+      Console.WriteLine(foundDog.GetId());
       return foundDog;
     }
 

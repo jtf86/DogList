@@ -9,6 +9,7 @@ namespace DogList.Controllers
 {
     public class HomeController : Controller
     {
+        [Route("/")]
         public ActionResult Index()
         {
             return View();
@@ -17,25 +18,30 @@ namespace DogList.Controllers
         [Route("/dogs")]
         public ActionResult Dogs()
         {
-          Dictionary<string, object> model = new Dictionary<string, object> ();
           List<Dog> allDogs = Dog.GetAll();
-          model.Add("allDogs", allDogs);
-          return View(model);
-          // return View();
+          return View(allDogs);
         }
+
+        [Route("/dogs/{id}")]
+        public ActionResult DogDetails(int id)
+        {
+          Dog thisDog = Dog.Find(id);
+          Console.WriteLine(thisDog);
+          return View(thisDog);
+        }
+
 
         [Route("/newdog")]
         [HttpPost]
         public ActionResult NewDog()
         {
           Dictionary<string, object> model = new Dictionary<string, object> ();
-          Dog newDog = new Dog(Request.Form["name"]);
+          Dog newDog = new Dog(Request.Form["dogname"]);
           newDog.Save();
           List<Dog> allDogs = Dog.GetAll();
-          model.Add("Recentdog", newDog);
+          model.Add("newDog", newDog);
           model.Add("allDogs", allDogs);
           return View(model);
-          // return View();
         }
 
     }
