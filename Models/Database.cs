@@ -9,7 +9,6 @@ namespace DogList
     public static SqlConnection Connection()
     {
       SqlConnection conn = new SqlConnection(DBConfiguration.ConnectionString);
-      Console.WriteLine("YOU HAVE CONNECTED");
       return conn;
     }
   }

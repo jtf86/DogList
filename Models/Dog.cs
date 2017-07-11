@@ -92,7 +92,6 @@ namespace DogList.Objects
       {
         conn.Close();
       }
-      Console.WriteLine("Dog Gone");
     }
 
     public void Update(string newName)
