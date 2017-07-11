@@ -151,7 +151,6 @@ namespace DogList.Objects
       {
         conn.Close();
       }
-      Console.WriteLine(foundDog.GetId());
       return foundDog;
     }
 

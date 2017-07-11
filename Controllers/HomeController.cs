@@ -75,7 +75,7 @@ namespace DogList.Controllers
           return View(thisDog);
         }
 
-        [HttpPost("/dogs/deleted/{id}")]
+        [HttpPost("/dogs/delete/{id}")]
         public ActionResult DogDeleted(int id)
         {
           Dog thisDog = Dog.Find(id);
