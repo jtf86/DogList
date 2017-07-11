@@ -16,8 +16,6 @@ namespace DogList
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -30,6 +28,7 @@ namespace DogList
             // Add framework services.
             services.AddMvc();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -56,5 +55,9 @@ namespace DogList
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+    }
+    public static class DBConfiguration
+    {
+      public static string ConnectionString = "Server=localhost;Database=doglist;User Id=sa;Password=Epic0dus";
     }
 }

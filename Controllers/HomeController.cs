@@ -3,33 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DogList.Objects;
 
 namespace DogList.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [Route("/dogs")]
+        public ActionResult Dogs()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+          // Dictionary<string, object> model = new Dictionary<string, object> ();
+          // List<Dog> allDogs = Dog.GetAll();
+          // model.Add("allDogs", allDogs);
+          // return View(model);
+          return View();
         }
 
-        public IActionResult Contact()
+        [Route("/newdog")]
+        [HttpPost]
+        public ActionResult NewDog()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+          // Dictionary<string, object> model = new Dictionary<string, object> ();
+          // Dog newDog = new Dog(Request.Form["name"]);
+          // newDog.Save();
+          // List<Dog> allDogs = Dog.GetAll();
+          // model.Add("Recentdog", newDog);
+          // model.Add("allDogs", allDogs);
+          // return View(model);
+          return View();
         }
 
-        public IActionResult Error()
-        {
-            return View();
-        }
     }
 }
