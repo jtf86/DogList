@@ -75,6 +75,56 @@ namespace DogList.Objects
       }
     }
 
+    public void Delete()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("Delete FROM dogs WHERE id = @DogId;", conn);
+      SqlParameter thisDogId = new SqlParameter();
+      thisDogId.ParameterName = "@DogId";
+      thisDogId.Value = this._id;
+
+      cmd.Parameters.Add(thisDogId);
+      cmd.ExecuteNonQuery();
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
+      Console.WriteLine("Dog Gone");
+    }
+
+    public void Update(string newName)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE dogs SET name = @NewName OUTPUT INSERTED.name WHERE id = @DogId;", conn);
+
+      SqlParameter newNameParameter = new SqlParameter();
+      newNameParameter.ParameterName = "@NewName";
+      newNameParameter.Value = newName;
+      cmd.Parameters.Add(newNameParameter);
+
+
+      SqlParameter DogIdParameter = new SqlParameter();
+      DogIdParameter.ParameterName = "@DogId";
+      DogIdParameter.Value = this.GetId();
+      cmd.Parameters.Add(DogIdParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._name = rdr.GetString(0);
+      }
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
+    }
+
     public static Dog Find(int dogId)
     {
       SqlConnection conn = DB.Connection();

@@ -1,0 +1,10 @@
+<h3>Edit @Model.GetName()</h3>
+
+<form action="/dogs/edited/@Model.GetId()" method="post">
+  @* <input type="hidden" name="_method" value="PATCH"> *@
+  <label for="newname">New Dog Name:</label>
+  <input type="text" name="newname" value="">
+  <button type="submit" name="button">Edit Name</button>
+</form>
+
+@Html.ActionLink("CLICK ME", "Dogs")
