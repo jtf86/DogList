@@ -55,6 +55,6 @@ mssql -u sa -p Epic0dus -d doglist
 
 ### Other information / bugs
 
-placeholder
+All routing is done with GET and POST. No current solution implemented for use of PATCH or DELETE HTTP methods.
 
 ----
