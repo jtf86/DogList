@@ -14,7 +14,16 @@ This project requires the installation of the [.NET Core 1.1 SDK](https://www.mi
 
 The SQL service in use is the [Microsoft/mssql-server-linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) container for [Docker](https://www.docker.com/community-edition)
 
+---
+### App Setup
 
+
+* Clone App
+```
+* dotnet restore
+* dotnet build
+* dotnet run
+```
 ----
 
 ### SQL setup
