@@ -2,6 +2,6 @@
 
 <form action="/dogs/edit/@Model.GetId()" method="post">
   <label for="newname">New Dog Name:</label>
-  <input type="text" name="newname" value="">
+  <input type="text" name="newname" value="@Model.GetName()">
   <button type="submit" name="button">Edit Name</button>
 </form>
