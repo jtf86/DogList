@@ -22,7 +22,6 @@ The SQL service in use is the [Microsoft/mssql-server-linux](https://hub.docker.
 Install Docker and the mssql container. An *excellent* guide can be found [on David Neal's blog](https://medium.com/@reverentgeek/sql-server-running-on-a-mac-3efafda48861)
 
 When you create your container, and setup your server, use the following credentials
-
 ```
 Container name: epicodus_mssql_server
 User Id: sa
@@ -30,17 +29,26 @@ Password: Epic0dus
 ```
 
 An easy command is:
-
 ```
 docker run -d --name epicodus_mssql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Epic0dus' -p 1433:1433 microsoft/mssql-server-linux
 ```
 
-Once interacting with SQL database, create the following database and table:
+Log in to SQL with
+```
+mssql -u sa -p Epic0dus
+```
 
+
+Once interacting with SQL database, create the following database and table:
 ```
 CREATE DATABASE doglist;
 USE doglist;
 CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
+```
+
+Later, to connect directly to the doglist database, you can login with
+```
+mssql -u sa -p Epic0dus -d doglist
 ```
 
 ----
