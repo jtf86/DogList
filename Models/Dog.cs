@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-// using Microsoft.EntityFrameworkCore;
-// using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace DogList.Objects
 {
