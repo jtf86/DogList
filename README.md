@@ -36,9 +36,11 @@ An easy command is:
 docker run -d --name epicodus_mssql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Epic0dus' -p 1433:1433 microsoft/mssql-server-linux
 ```
 
-Once interacting with SQL database, create the following table:
+Once interacting with SQL database, create the following database and table:
 
 ```
+CREATE DATABASE doglist;
+USE doglist;
 CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
 ```
 
