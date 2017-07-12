@@ -25,9 +25,8 @@ When you create your container, and setup your server, use the following credent
 
 ```
 Container name: epicodus_mssql_server
-Password: Epic0dus
-Database name: doglist
 User Id: sa
+Password: Epic0dus
 ```
 
 An easy command is:
