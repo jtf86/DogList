@@ -24,9 +24,16 @@ Install Docker and the mssql container. An *excellent* guide can be found [on Da
 When you create your container, and setup your server, use the following credentials
 
 ```
-database name: doglist
-User Id: sa
+Container name: epicodus_mssql_server
 Password: Epic0dus
+Database name: doglist
+User Id: sa
+```
+
+An easy command is:
+
+```
+docker run -d --name epicodus_mssql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Epic0dus' -p 1433:1433 microsoft/mssql-server-linux
 ```
 
 Once interacting with SQL database, create the following table:
