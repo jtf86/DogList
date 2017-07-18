@@ -17,6 +17,7 @@ The SQL service in use is the [Microsoft/mssql-server-linux](https://hub.docker.
 ---
 ### App Setup
 
+Follow SQL setup instructions below.
 
 * Clone App
 ```
@@ -24,6 +25,8 @@ The SQL service in use is the [Microsoft/mssql-server-linux](https://hub.docker.
 * dotnet build
 * dotnet run
 ```
+
+You can now visit the app at `localhost:5000`
 ----
 
 ### SQL setup
