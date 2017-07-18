@@ -27,6 +27,7 @@ Follow SQL setup instructions below.
 ```
 
 You can now visit the app at `localhost:5000`
+
 ----
 
 ### SQL setup
