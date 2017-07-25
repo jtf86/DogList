@@ -6,6 +6,12 @@ namespace DogList.Objects
   {
 
     [Fact]
+    public void StupidTest()
+    {
+      Assert.Equal(1,1);
+    }
+
+    [Fact]
     public void Dog_HasName_True()
     {
       Dog newDog = new Dog("Kesa");
