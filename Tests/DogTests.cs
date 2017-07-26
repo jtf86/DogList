@@ -19,5 +19,17 @@ namespace DogList.Objects
       Assert.NotEqual("Kesa", newDog.GetName());
     }
 
+    [Fact]
+    public void Dog_SavesToDatabase_True()
+    {
+      Dog newDog = new Dog("Doug");
+      newDog.Save();
+
+      Dog foundDog = Dog.Find(newDog.GetId());
+
+      Assert.Equal("Doug", foundDog.GetName());
+    }
+
+
   }
 }
