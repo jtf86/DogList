@@ -1,4 +1,5 @@
 using Xunit;
+using System;
 
 namespace DogList.Objects
 {
@@ -25,6 +26,7 @@ namespace DogList.Objects
       Dog newDog = new Dog("Doug");
       newDog.Save();
 
+      Console.WriteLine(newDog.GetId());
       Dog foundDog = Dog.Find(newDog.GetId());
 
       Assert.Equal("Doug", foundDog.GetName());
