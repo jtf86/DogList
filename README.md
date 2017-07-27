@@ -58,6 +58,12 @@ CREATE DATABASE doglist;
 USE doglist;
 CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
 ```
+And the testing database:
+```
+CREATE DATABASE doglisttest;
+USE doglisttest;
+CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
+```
 
 Later, to connect directly to the doglist database, you can login with
 ```
