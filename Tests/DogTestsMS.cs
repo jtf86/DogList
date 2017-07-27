@@ -6,6 +6,10 @@ namespace DogList.Objects
   [TestClass]
   public class DogListTests
   {
+    public DogListTests()
+    {
+      DBConfiguration.ConnectionString = "Server=localhost;Database=doglist_test;User Id=sa;Password=Epic0dus";
+    }
 
     [TestMethod]
     public void Dog_HasName_True()
