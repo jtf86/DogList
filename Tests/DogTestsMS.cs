@@ -18,7 +18,7 @@ namespace DogList.Objects
     public void Dog_HasName_False()
     {
       Dog newDog = new Dog("Doug");
-      Assert.AreEqual("Kesa", newDog.GetName());
+      Assert.AreNotEqual("Kesa", newDog.GetName());
     }
 
     [TestMethod]
