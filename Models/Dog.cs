@@ -92,6 +92,21 @@ namespace DogList.Objects
       }
     }
 
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("Delete FROM dogs;", conn);
+      cmd.ExecuteNonQuery();
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
+    }
+
+
     public void Update(string newName)
     {
       SqlConnection conn = DB.Connection();
