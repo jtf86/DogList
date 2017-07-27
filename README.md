@@ -60,8 +60,8 @@ CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
 ```
 And the testing database:
 ```
-CREATE DATABASE doglisttest;
-USE doglisttest;
+CREATE DATABASE doglist_test;
+USE doglist_test;
 CREATE TABLE dogs (id INT IDENTITY (1,1), name VARCHAR(255));
 ```
 
